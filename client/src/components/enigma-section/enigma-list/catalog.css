@@ -33,11 +33,7 @@
     text-align: center;
   }
   
-  .table th:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
+
   .icon {
     height: 13px;
   }

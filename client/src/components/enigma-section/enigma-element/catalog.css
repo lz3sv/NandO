@@ -40,9 +40,7 @@
     height: 13px;
   }
   
-  .table th:hover .icon {
-    opacity: 1;
-  }
+
   
   .table th .icon {
     margin-left: 10px;
@@ -95,17 +93,6 @@
     background-color: transparent !important;
   }
   
-  .loading-shade {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    bottom: 0px;
-    right: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   
   .no-content {
     text-align: center;

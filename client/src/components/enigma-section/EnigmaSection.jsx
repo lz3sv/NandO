@@ -134,7 +134,7 @@ export default function EnigmaSection() {
   }
 
   return (
-    <section className="card users-container">
+    <section className="card enigmas-container">
 
 {/*
       <!-- Search bar component 
