@@ -34,10 +34,7 @@
     text-align: center;
   }
   
-  .table th:hover {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+
   
   .icon {
     height: 13px;
@@ -125,21 +122,5 @@
     color: #943232;
   }
   
-  @media (max-width: 768px) {
-    .table {
-      width: 800px;
-    }
-    .table-wrapper::-webkit-scrollbar {
-      height: 10px;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    .table-wrapper::-webkit-scrollbar-thumb {
-      -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
-      background: #999;
-    }
-    .table td,
-    .table th {
-      text-align: left;
-    }
-  }
+  
   

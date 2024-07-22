@@ -16,12 +16,12 @@ export default function EnigmaDetails(
                         <header className="headers">
                             <h2>Подробни данни за записа</h2>
                             <button className="btn close" onClick={onClose}>
-
+                                <i class="glyphicon glyphicon-remove"></i>
                             </button>
                         </header>
                         <div className="content">
 
-                            <div className="user-details">
+                            <div className="enigma-details">
                                 <p>Enigma Id: <strong>{enigma._id}</strong></p>
                                 <p>Enigma: <strong>  {enigma.enigma}</strong></p>
                                 <p>Date: <strong>{enigma.date}</strong></p>
