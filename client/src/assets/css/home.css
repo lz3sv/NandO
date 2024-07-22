@@ -111,7 +111,6 @@ body {
 
 .last-course .learn-more {
   background-color: black;
-  border-radius: 10px;
   padding: 5px 10px;
   text-align: center;
   text-decoration: none;
@@ -151,7 +150,6 @@ footer {
   z-index: 11111;
   top: 100px;
   text-align: center;
-  border-radius: 20px;
   color: rgb(255, 255, 255);
   height: auto;
   width: 320px;
@@ -163,7 +161,6 @@ footer {
   font-size: 20px;
   padding: 20px;
   height: auto;
-  border-radius: 20px;
 }
 
 .errorContainer {
@@ -178,20 +175,4 @@ footer {
   animation-fill-mode: forwards;
 }
 
-/* @keyframes cssAnimation {
-  to {
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      padding: 0;
-  }
-}
 
-@-webkit-keyframes cssAnimation {
-  to {
-      width: 0;
-      height: 0;
-      visibility: hidden;
-      padding: 0;
-  }
-} */
