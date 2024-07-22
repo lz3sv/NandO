@@ -10,16 +10,17 @@
     text-align: center;
     margin: auto;
   }
-  /*
+  
   .container{
     place-items: center;
   }
-  */
+  
   .container {
+    position: absolute;
+    top: 10%;
     color: yellow;
-    margin:auto;
-    margin-top: 20%;
-    padding:20
+    /*margin:auto;*/
+    padding:0
   }
 
 
