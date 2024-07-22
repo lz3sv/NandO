@@ -40,16 +40,20 @@ export default function EnigmaSection() {
 
 
   const editEnigmaSave= async (e)=>{
-  /*  //prevent reload
+    //prevent reload
     e.preventDefault()
+
+    
 
     //get Enigma data
     const formData= new FormData(e.currentTarget)
+    
     const enigmaData={
       ...Object.fromEntries(formData),
-      comments: [],
-      owner: "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be"
-   */ }
+
+    }
+    console.log(enigmaData)
+  }
 
   const addEnigmaSave= async (e)=>{
     //prevent reload
@@ -136,10 +140,7 @@ export default function EnigmaSection() {
   return (
     <section className="card enigmas-container">
 
-{/*
-      <!-- Search bar component 
-      <Search />
-*/}
+
       {/*<!-- Table component */}
       <Catalog 
         enigmas={enigmas}
@@ -157,7 +158,7 @@ export default function EnigmaSection() {
 
       {showEditEnigma && (<EnigmaEdit
         onClose={()=>setShowEditEnigma(null)}
-        onSave={editEnigmaSave}
+        onUpdate={editEnigmaSave}
         enigma={enigmas.find(enigma=>enigma._id===showEditEnigma)}
       />)}
 

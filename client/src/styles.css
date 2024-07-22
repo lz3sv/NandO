@@ -95,7 +95,7 @@ ul {
 }
 
 .modal {
-  width: 45rem;
+  width: 30rem;
   position: absolute;
   max-height: 90vh;
   margin: auto;
@@ -106,12 +106,7 @@ ul {
   margin-top: 50px;
 }
 
-@media (min-width: 930px) {
-  .modal {
-    width: 45rem;
-    left: calc(50% - 20rem);
-  }
-}
+
 
 /* Header styles */
 .header {
@@ -133,23 +128,7 @@ ul {
   margin-left: 10px;
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 0 5%;
-    height: 4rem;
-  }
-  .header .logo {
-    font-size: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-  .logo .description {
-    font-size: 1rem;
-    margin-left: 0px;
-  }
-}
+
 
 /* Main  */
 .main {
@@ -467,16 +446,7 @@ ul {
   margin-top: 20px;
 }
 
-.image-container {
-  margin-right: 20px;
-}
 
-.image-container img {
-  width: 210px;
-  height: 210px;
-  object-fit: cover;
-  flex: 4;
-}
 
 .enigma-details {
   flex: 8;
@@ -492,57 +462,11 @@ ul {
   margin-bottom: 0px;
 }
 
-@media (min-width: 681px) and (max-width: 1000px) {
-  .detail-container {
-    height: 66vh;
-  }
-  .content {
-    flex-direction: column;
-    align-items: center;
-  }
-  .image-container {
-    margin-right: 0px;
-    margin-bottom: 20px;
-  }
-  .image-container img {
-    width: 140px;
-    height: 140px;
-  }
-}
 
-@media (max-width: 680px) {
-  .detail-container {
-    min-width: 66vw;
-    min-height: 75vh;
-    width: 100%;
-    height: auto;
-  }
-  .content {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0px;
-  }
-  .image-container {
-    margin-right: 0px;
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px;
-  }
-  .image-container img {
-    width: 120px;
-    height: 120px;
-  }
-  .user-details {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    max-width: 400px;
-  }
-}
 
 @media (max-width: 600px) {
   .detail-container {
-    min-width: 63vw;
+    min-width: 100vw;
     min-height: 70vh;
     width: 100%;
     height: auto;
@@ -618,7 +542,7 @@ ul {
   line-height: 1.5;
   border: 1px solid #d5dee6;
   outline: none;
-  height: 50px;
+  height: 30px;
   padding: 6px 12px;
   background-color: #f7f7f7;
 
@@ -634,7 +558,7 @@ ul {
 
 .form-group {
   margin-right: 10px;
-  width: 47%;
+  width: 100%;
 }
 
 .form-group .form-error {
@@ -665,25 +589,4 @@ ul {
   height: 3em;
   margin-right: 20px;
   background-color: rgb(231, 108, 108);
-}
-
-/* Footer styles */
-.footer {
-  text-align: center;
-  width: 100%;
-  height: 3rem;
-  padding: 10px;
-  color: white;
-  background: #24292f;
-}
-
-.footer p {
-  font-size: 1.2rem;
-}
-
-@media (max-width: 768px) {
-  /* Footer  */
-  .footer p {
-    font-size: 0.9rem;
-  }
 }
