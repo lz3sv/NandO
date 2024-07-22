@@ -30,7 +30,7 @@ export default function EnigmaElement({
                 
             <button className="btn info-btn" title="Info" onClick={()=>onEnigmaDetailsClick(enigma._id,enigma.owner)}><i className="fa fa-info-circle"></i></button>
 
-            <button className="btn like-btn" title="Info" onClick={()=>onEnigmaLikeClick(enigma._id)}><i className="fa fa-thumbs-up"></i></button>
+            <button className="btn like-btn" title="Like/Comment" onClick={()=>onEnigmaLikeClick(enigma._id)}><i className="fa fa-thumbs-up"></i></button>
         </td>
     </tr>
     )
