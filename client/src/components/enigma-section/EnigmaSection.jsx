@@ -42,34 +42,43 @@ export default function EnigmaSection() {
   const editEnigmaSave= async (e)=>{
     //prevent reload
     e.preventDefault()
-
-    //get Enigma data
-
     const formData= new FormData(e.currentTarget)
     const enigmaData={
       ...Object.fromEntries(formData),
     }
-    const updatedData={
-      enigma: enigmaData.enigma,
-      date: enigmaData.date,
-      time: enigmaData.time,
-      content: enigmaData.content
-    }
+//get Enigma data
+    const response1 = await fetch(`${baseUrl}/enigmas/enigma/${enigmaData._id}`)
+    const result = await response1.json()
+    console.log(result)
+
 
     
 
+//Update Data
+
+      result['enigma']= enigmaData.enigma,
+      result['date']= enigmaData.date,
+      result['time']= enigmaData.time,
+      result['content']= enigmaData.content
+    
 
       const response= await fetch(`${baseUrl}/enigmas/enigma/${enigmaData._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(updatedData),
+        body: JSON.stringify(result),
       })
 
       const updatedResponse=await response.json()
      console.log(updatedResponse)
 
+     const response2 = await fetch(`${baseUrl}/enigmas/enigma`)
+     const result2 = await response2.json()
+     const enigmas=Object.values(result2)
+     setEnigma(enigmas)
+
+     setShowEditEnigma(false)
 
 
   }
