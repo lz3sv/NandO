@@ -57,10 +57,10 @@ const changeHandler=(e)=>{
                 <div className="input-wrapper">
                   <input 
                     id="id" 
-                    name="id" 
+                    name="_id" 
                     type="text" 
                     defaultValue={enigma._id} 
-                    readOnly='true'
+                    readOnly={true}
                   />
                 </div>
               </div>

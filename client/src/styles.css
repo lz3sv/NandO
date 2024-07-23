@@ -98,12 +98,15 @@ ul {
   width: 30rem;
   position: absolute;
   max-height: 90vh;
-  margin: auto;
+  /* margin: auto; */
   background-color: white;
   padding: 1rem;
   box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
   z-index: 30;
-  margin-top: 50px;
+   margin-top: 50px; 
+    left: 50%;
+    transform: translate(-50%); 
+
 }
 
 

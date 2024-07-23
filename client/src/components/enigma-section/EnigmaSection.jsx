@@ -43,16 +43,35 @@ export default function EnigmaSection() {
     //prevent reload
     e.preventDefault()
 
-    
-
     //get Enigma data
+
     const formData= new FormData(e.currentTarget)
-    
     const enigmaData={
       ...Object.fromEntries(formData),
-
     }
-    console.log(enigmaData)
+    const updatedData={
+      enigma: enigmaData.enigma,
+      date: enigmaData.date,
+      time: enigmaData.time,
+      content: enigmaData.content
+    }
+
+    
+
+
+      const response= await fetch(`${baseUrl}/enigmas/enigma/${enigmaData._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedData),
+      })
+
+      const updatedResponse=await response.json()
+     console.log(updatedResponse)
+
+
+
   }
 
   const addEnigmaSave= async (e)=>{
