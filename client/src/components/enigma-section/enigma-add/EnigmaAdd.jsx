@@ -1,16 +1,28 @@
+
 export default function EnigmaAdd({
-    onClose,
-    onSave,
-    
+  onClose,
+  onSave,
 }){
+
+
+// const onClose=()=>{
+//   const modal=document.getElementById('overlay')
+//   modal.style.display = "none";
+
+// }
+
+// const onSave=()=>{
+
+// }
+
     return (
 
-<div className="overlay">
+<div className="overlay" id='overlay'>
       <div className="backdrop"  onClick={onClose}></div>
-      <div className="modal">
+      <div className="modal" id='modal'>
         <div className="user-container">
           <header className="headers">
-            <h2>Edit Enigma/Add Enigma</h2>
+            <h2>Add Enigma</h2>
           </header>
           <form onSubmit={onSave}>
             <div className="form-row">

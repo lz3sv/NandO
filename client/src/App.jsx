@@ -22,7 +22,6 @@ function App() {
           <Route path="/" element={<EnigmaSection />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/catalog" element={<EnigmaSection />}/>
-           <Route path="/create" element={<EnigmaAdd/>}/> 
           <Route path="/register" element={<Register />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/catalog/:articleId" element={<Not404 />}/>

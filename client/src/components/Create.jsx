@@ -2,15 +2,14 @@ import { useState } from "react"
 import EnigmaAdd from "./enigma-section/enigma-add/EnigmaAdd"
 
 export default function Create() {
-    const [showAddEnigma, setShowAddEnigma] = useState(false)
     const baseUrl = 'http://localhost:3030/jsonstore'
 
-    console.log('Wlizam tuk!')
-        setShowAddEnigma(true)
+
 
 
     const addEnigmaCloseHandler = () => {
-        setShowAddEnigma(false)
+        const modal=document.getElementById('overlay')
+        modal.style.display = "none";
     }
 
 
