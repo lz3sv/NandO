@@ -151,8 +151,12 @@ export default function EnigmaSection() {
     const result = await response1.json()
     
     //Update Data
-
-    result['comments'].push('9d12abaf-b2f0-4c10-bb14-8bb90b5e518f')
+    let userId='9d12abaf-b2f0-4c10-bb14-8bb90b5e518f'
+    if (result['comments'].includes(userId)){
+      alert ("Вече сте харесали тази публикация.")
+      return
+    }
+    result['comments'].push('userId')
 
     console.log(result)
     
