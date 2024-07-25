@@ -17,8 +17,10 @@ function App() {
     <>
       <Nav />
       <Routes>
+          <Route path="/" element={<EnigmaSection />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/catalog" element={<EnigmaSection />}/>
+          <Route path="/create" element={adde}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/catalog/:articleId" element={<Not404 />}/>
