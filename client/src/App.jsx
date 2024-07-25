@@ -8,6 +8,8 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Nav from "./components/Nav"
 import EnigmaSection from "./components/enigma-section/EnigmaSection"
+import Create from "./components/Create"
+import EnigmaAdd from "./components/enigma-section/enigma-add/EnigmaAdd"
 
 
 
@@ -20,7 +22,7 @@ function App() {
           <Route path="/" element={<EnigmaSection />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/catalog" element={<EnigmaSection />}/>
-          <Route path="/create" element={adde}/>
+           <Route path="/create" element={<EnigmaAdd/>}/> 
           <Route path="/register" element={<Register />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/catalog/:articleId" element={<Not404 />}/>
