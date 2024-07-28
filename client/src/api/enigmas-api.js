@@ -12,12 +12,16 @@ export const getOne= (enigmaId) => requester.get(`${BASE_URL}/${enigmaId}`)
 
 export const create= (enigmaData) => requester.post(`${BASE_URL}`,enigmaData)
     
+export const del= (enigmaId) => requester.del(`${BASE_URL}/${enigmaId}`)
 
+export const update= (enigmaId,enigmaData) => requester.put(`${BASE_URL}/${enigmaId}`,enigmaData)
 
 const enigmasAPI={
     getAll,
     getOne,
-    create
+    create,
+    del,
+    update
 }
 
 export default enigmasAPI

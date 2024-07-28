@@ -1,6 +1,8 @@
 
 //import Search from "../search/Search";
 //import UserAdd from "./user-add/UserAdd";
+import enigmasAPI from "../../api/enigmas-api";
+import { useGetAllEnigmas, useGetOneEnigmas } from "../../hooks/useEnigmas";
 import EnigmaAdd from "./enigma-add/EnigmaAdd";
 import EnigmaDetails from "./enigma-details/EnigmaDetails";
 import EnigmaEdit from "./enigma-edit/EnigmaEdit";
@@ -15,15 +17,14 @@ export default function EnigmaSection() {
   const [showAddEnigma, setShowAddEnigma] = useState(false)
   const [showEditEnigma, setShowEditEnigma] = useState(null)
   const [showEnigmaDetailsById, setShowEnigmaDetailsById] = useState(null)
+
+
   useEffect(() => {
     try {
-      (async function getEnigma() {
-        const response = await fetch(`${baseUrl}/enigmas/enigma`)
-        const result = await response.json()
-        const enigmas = Object.values(result)
-        setEnigma(enigmas)
-        //console.log(enigmas) 
-      })() //iife !!!     
+       ( async() =>{
+        await enigmasAPI.getAll()
+            .then(result=>setEnigma(result))
+        })() 
     } catch (error) {
       alert(error.message)
     }
@@ -38,7 +39,7 @@ export default function EnigmaSection() {
     setShowAddEnigma(false)
   }
 
-
+//EDIT
   const editEnigmaSave = async (e) => {
     //prevent reload
     e.preventDefault()
@@ -47,10 +48,10 @@ export default function EnigmaSection() {
       ...Object.fromEntries(formData),
     }
     //get Enigma data
-    const response1 = await fetch(`${baseUrl}/enigmas/enigma/${enigmaData._id}`)
-    const result = await response1.json()
+    //const response1 = await fetch(`${baseUrl}/enigmas/enigma/${enigmaData._id}`)
+    //const result = await response1.json()
+    const result = await enigmasAPI.getOne(enigmaData._id)
     //console.log(result)
-
     //Update Data
 
     result['enigma'] = enigmaData.enigma,
@@ -58,21 +59,9 @@ export default function EnigmaSection() {
       result['time'] = enigmaData.time,
       result['content'] = enigmaData.content
 
+    const updatedResponse= await enigmasAPI.update(enigmaData._id, result)
 
-    const response = await fetch(`${baseUrl}/enigmas/enigma/${enigmaData._id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(result),
-    })
-
-    const updatedResponse = await response.json()
-    console.log(updatedResponse)
-
-    const response2 = await fetch(`${baseUrl}/enigmas/enigma`)
-    const result2 = await response2.json()
-    const enigmas = Object.values(result2)
+    const enigmas = await enigmasAPI.getAll()
     setEnigma(enigmas)
 
     setShowEditEnigma(false)
@@ -80,10 +69,11 @@ export default function EnigmaSection() {
 
   }
 
+
+  //CREATE
   const addEnigmaSave = async (e) => {
     //prevent reload
     e.preventDefault()
-
     //get Enigma data
     const formData = new FormData(e.currentTarget)
     const enigmaData = {
@@ -92,7 +82,6 @@ export default function EnigmaSection() {
       owner: "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be"
     }
     //console.log(enigmaData)
-
     //make post request
     const response = await fetch(`${baseUrl}/enigmas/enigma`, {
       method: 'POST',
@@ -101,18 +90,15 @@ export default function EnigmaSection() {
       },
       body: JSON.stringify(enigmaData),
     })
-
     const createdEnigma = await response.json()
     //console.log(responseData)
-
     //update local state
     setEnigma(oldEnigma => [createdEnigma, ...oldEnigma])
-
     //close modal
     setShowAddEnigma(false)
   }
 
-
+//DETAILS
   const enigmaDetailsClickHandler = (enigmaId, enigmaOwner) => {
     //console.log(enigmaOwner)
     try {
@@ -120,6 +106,8 @@ export default function EnigmaSection() {
         //console.log(`${baseUrl}/enigmas/enigma/${enigmaId}`)
         const response = await fetch(`${baseUrl}/enigmas/profiles/${enigmaOwner}`)
         const result = await response.json()
+
+        //const result = await useGetOneEnigmas(enigmaData._id)
 
         //console.log(result.username + "," + result.email)
 
@@ -144,6 +132,8 @@ export default function EnigmaSection() {
 
   }
 
+
+  //LIKE 
   const enigmaLikeClickHandler = async (enigmaId) => {
 
     //get Enigma data
@@ -176,21 +166,22 @@ export default function EnigmaSection() {
     const enigmas = Object.values(result2)
     setEnigma(enigmas)
 
-
-
-
   }
 
+
+  //DELETE ENIGMA
   const enigmaDeleteClickHandler = async (enigmaId) => {
     //console.log(enigmaId)
     if (confirm("Желаете ли да изтриете записа?\nИзберете OK или Cancel.") == false) {
       return
     }
     //delete request to server
-    const response = await fetch(`${baseUrl}/enigmas/enigma/${enigmaId}`, {
-      method: 'DELETE',
+    // const response = await fetch(`${baseUrl}/enigmas/enigma/${enigmaId}`, {
+    //   method: 'DELETE',
 
-    })
+    // })
+
+    const response = await enigmasAPI.del(enigmaId)
     //delete from local state
     setEnigma(oldEnigmas => oldEnigmas.filter(enigma => enigma._id !== enigmaId))
 
