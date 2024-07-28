@@ -1,13 +1,42 @@
 import { Link } from 'react-router-dom'
 import './Login.css'
+
+import { useNavigate } from "react-router-dom"
+import { useLogin } from '../hooks/useAuth'
+import { useForm } from '../hooks/useForm'
+
+
+const initialValues = { email: '', password: '' }
+
 export default function Login(){
+
+    const login = useLogin()
+    const navigate = useNavigate()
+    const loginHandler = async ({ email, password }) => {
+        try {
+            await login(email, password)
+            navigate('/')
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+    const { 
+        values, 
+        changeHandler, 
+        submitHandler 
+    } = useForm(initialValues, loginHandler)
+
+
     return (
         <>
             <div className="login-box">
             <h1>Вписване</h1>
-            <form method="post">
+            <form id="login" onSubmit={submitHandler}>
                 <label>Email</label>
-                <input type="text" placeholder="Email..." name="email" />
+                <input 
+                    type="text" 
+                    placeholder="Email..." 
+                    name="email" />
                 <label>Password</label>
                 <input type="password" placeholder="Password..." name="password" />
                 <input type="submit" value="Впиши ме!" />
