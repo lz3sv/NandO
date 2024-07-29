@@ -14,6 +14,22 @@ export const useLogin=()=>{
     return loginHandler
 }
 
+export const useLogout=()=>{
+    const {changeAuthState}= useContext(AuthContext)
+    const authData={
+        userId:'',
+        username:'',
+        email: '',
+        accessToken: '',
+        isAuthenticated: false,
+       
+    }
+    //changeAuthState: (authState={})=> null,
+    changeAuthState(authData)
+    //console.log(authData)
+    return authData
+}
+
 export const useRegister=()=>{
     const {changeAuthState}= useContext(AuthContext)
     

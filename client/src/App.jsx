@@ -12,6 +12,7 @@ import EnigmaSection from "./components/enigma-section/EnigmaSection"
 import Create from "./components/Create"
 import EnigmaAdd from "./components/enigma-section/enigma-add/EnigmaAdd"
 import { AuthContext } from './context/AuthContext'
+import Logout from "./components/Logout"
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/create" element={<EnigmaSection />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/catalog/:articleId" element={<Not404 />} />
           <Route path="/not-found" element={<Not404 />} />
           <Route path="*" element={<Not404 />} />
