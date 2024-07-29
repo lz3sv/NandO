@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
+import { useContext } from 'react'
 
-//import Search from "../search/Search";
-//import UserAdd from "./user-add/UserAdd";
 import enigmasAPI from "../../api/enigmas-api";
 import usersAPI from "../../api/users-api";
 import { useGetAllEnigmas, useGetOneEnigmas } from "../../hooks/useEnigmas";
@@ -8,12 +8,15 @@ import EnigmaAdd from "./enigma-add/EnigmaAdd";
 import EnigmaDetails from "./enigma-details/EnigmaDetails";
 import EnigmaEdit from "./enigma-edit/EnigmaEdit";
 import Catalog from "./enigma-list/catalog";
-import { useState, useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
+
 
 const baseUrl = 'http://localhost:3030/jsonstore'
 let owner = ""
 
 export default function EnigmaSection() {
+  const { userId } = useContext(AuthContext)
   const [enigmas, setEnigma] = useState([])
   const [showAddEnigma, setShowAddEnigma] = useState(false)
   const [showEditEnigma, setShowEditEnigma] = useState(null)
@@ -117,30 +120,21 @@ export default function EnigmaSection() {
 
   //LIKE 
   const enigmaLikeClickHandler = async (enigmaId) => {
-
     //get Enigma data
-    const response1 = await fetch(`${baseUrl}/enigmas/enigma/${enigmaId}`)
-    const result = await response1.json()
-    
+    const result = await enigmasAPI.getOne(enigmaId)
+    // console.log('unliked')
+    // console.log(result)
     //Update Data
-    let userId='9d12abaf-b2f0-4c10-bb14-8bb90b5e518f'
     if (result['comments'].includes(userId)){
       alert ("Вече сте харесали тази публикация.")
       return
     }
-    result['comments'].push('userId')
-
-    console.log(result)
+    result['comments'].push(userId)
+    // console.log('liked')
+    // console.log(result)
     
-    const response = await fetch(`${baseUrl}/enigmas/enigma/${enigmaId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(result),
-    })
+    const updatedResponse= await enigmasAPI.update(enigmaId, result)
 
-    const updatedResponse = await response.json()
     console.log(updatedResponse)
 
     const response2 = await fetch(`${baseUrl}/enigmas/enigma`)
