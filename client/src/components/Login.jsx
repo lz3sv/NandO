@@ -17,7 +17,7 @@ export default function Login(){
             await login(email, password)
             navigate('/')
         } catch (err) {
-            console.log(err.message)
+            alert (err.message)
         }
     }
     const { 
@@ -34,11 +34,20 @@ export default function Login(){
             <form id="login" onSubmit={submitHandler}>
                 <label>Email</label>
                 <input 
-                    type="text" 
+                    type="email" 
                     placeholder="Email..." 
-                    name="email" />
+                    name="email" 
+                    onChange={changeHandler}
+                    value={values.email}
+                    />
                 <label>Password</label>
-                <input type="password" placeholder="Password..." name="password" />
+                <input 
+                    type="password" 
+                    placeholder="Password..." 
+                    name="password" 
+                    onChange={changeHandler}
+                    value={values.password}
+                    />
                 <input type="submit" value="Впиши ме!" />
             </form>
             <p>Нямате регистрация? <Link to="/register" className='bold'>Регистрация</Link></p>

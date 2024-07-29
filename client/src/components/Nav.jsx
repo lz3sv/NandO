@@ -1,11 +1,14 @@
-import companyLogo from '../assets/logo.png'
-import './Nav.css'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
+import './Nav.css'
+import companyLogo from '../assets/logo.png'
+import { AuthContext } from '../context/AuthContext'
+
 export default function Nav() {
 
-    const hasUser = true
-    
-
+   
+    const { isAuthenticated } = useContext(AuthContext)
     return (
         <>
 
@@ -17,7 +20,7 @@ export default function Nav() {
                         <li><Link to="/about">Относно</Link></li>
                         <li><Link to="/catalog">Последни публикации</Link></li>
 
-                        {hasUser
+                        {isAuthenticated
                             ?
                             <>
                                 <li><Link to="/create">Създай публикация</Link></li>

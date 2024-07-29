@@ -2,6 +2,7 @@
 //import Search from "../search/Search";
 //import UserAdd from "./user-add/UserAdd";
 import enigmasAPI from "../../api/enigmas-api";
+import usersAPI from "../../api/users-api";
 import { useGetAllEnigmas, useGetOneEnigmas } from "../../hooks/useEnigmas";
 import EnigmaAdd from "./enigma-add/EnigmaAdd";
 import EnigmaDetails from "./enigma-details/EnigmaDetails";
@@ -98,34 +99,15 @@ export default function EnigmaSection() {
     setShowAddEnigma(false)
   }
 
-//DETAILS
-  const enigmaDetailsClickHandler = (enigmaId, enigmaOwner) => {
-    //console.log(enigmaOwner)
-    try {
-      (async function getEnigma() {
-        //console.log(`${baseUrl}/enigmas/enigma/${enigmaId}`)
-        const response = await fetch(`${baseUrl}/enigmas/profiles/${enigmaOwner}`)
-        const result = await response.json()
-
-        //const result = await useGetOneEnigmas(enigmaData._id)
-
-        //console.log(result.username + "," + result.email)
-
-        owner = await (result.username + " , " + result.email)
-        //console.log(owner)
+//DETAILS 
+  const enigmaDetailsClickHandler = async (enigmaId, enigmaOwner) => {
+        const user =  await usersAPI.getUserDetails(enigmaOwner)
+        owner =  (user.username + " , " + user.email)
         setShowEnigmaDetailsById(enigmaId, owner)
-
-      })() //iife !!!     
-    } catch (error) {
-      alert(error.message)
-    }
-
-
-
-
-
   }
 
+
+  //Show edit Modal
   const enigmaEditClickHandler = (enigmaId) => {
     //console.log(enigmas)
     setShowEditEnigma(enigmaId)
