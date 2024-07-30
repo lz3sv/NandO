@@ -1,10 +1,10 @@
 import './EnigmaDetails.css'
 export default function EnigmaDetails(
    { enigma,
-    owner,
     onClose,
    }
 ) {
+    console.log(enigma)
     return (
 
         
@@ -27,7 +27,7 @@ export default function EnigmaDetails(
                                 <p>Date: <strong>{enigma.date}</strong></p>
                                 <p>Time: <strong>{enigma.time}</strong></p>
                                 <p>Message: <strong> {enigma.content}</strong></p>
-                                <p>Creator: <strong>{owner}</strong></p>
+                                <p>Creator: <strong>{enigma.creator}</strong></p>
                                 <p>likes: <strong>{enigma.comments.length}</strong></p>
                             </div>
                         </div>

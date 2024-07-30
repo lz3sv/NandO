@@ -18,7 +18,7 @@ export default function Catalog({
                     <th>Дата</th>
                     <th>Час</th>
                     <th>Съобщение</th>
-                    <th>Брой коментари</th>
+                    <th>Брой харесвания</th>
                     <th>Действие</th>
                 </tr>
             </thead>

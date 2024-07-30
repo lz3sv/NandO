@@ -6,9 +6,17 @@ import companyLogo from '../assets/logo.png'
 import { AuthContext } from '../context/AuthContext'
 
 export default function Nav() {
-
-   
+  
     const { isAuthenticated } = useContext(AuthContext)
+    // document.getElementById('logoutBtn').addEventListener('click' , async  ()=>{
+    //     console.log('natiskat me!!!!')
+    //     //await logout()
+    //     //updateNav()
+    //     //page.redirect('/')
+    // })
+
+
+
     return (
         <>
 
@@ -24,7 +32,7 @@ export default function Nav() {
                             ?
                             <>
                                 <li><Link to="/create">Създай публикация</Link></li>
-                                <li><Link to="/logout">Отписване</Link></li>
+                                <li><Link to="/logout" id="logoutBtn">Отписване</Link></li>
 
                             </>
                             :

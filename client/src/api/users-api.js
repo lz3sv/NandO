@@ -1,22 +1,18 @@
 import requester from './requester'
 
-const BASE_URL='http://localhost:3030/jsonstore/enigmas/profiles'
+const BASE_URL='http://localhost:3030/users'
 
-export const getUserDetails = async (enigmaOwner) => {
-    const url=`${BASE_URL}/${enigmaOwner}`
+export const getLogout = async () => {
+    const url=`${BASE_URL}/logout`
     //console.log(url)
-    const response= await requester.get(url)
-    //console.log('response')
-    //console.log(response)
-    const user=await response
-    //console.log(user)
-    return user
+    await requester.get(url)
+    return 
 }
 
 
 
 const usersAPI={
-    getUserDetails,
+    getLogout,
 
 }
 

@@ -1642,7 +1642,47 @@
     			_createdOn: 1616237272948,
     			_updatedOn: 1616237293676
     		}
-    	}
+    	},
+        enigma:{
+        "07f260f4-466c-4607-9a33-f7273b24f1b4": {
+          _id: "07f260f4-466c-4607-9a33-f7273b24f1b4",
+          enigma: "E11",
+          date: "2024-07-03",
+          time: "10:30",
+          content: "12345 23456 65432 98076 ...",
+          creator: "Peter, peter@users.bg",
+          owner: "35c62d76-8152-4626-8712-eeb96381bea8",
+          comments: ["847ec027-f659-4086-8032-5173e2f9c93a","60f0cf0b-34b0-4abd-9769-8c42f830dffc"]
+        },
+        
+        "bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
+          _id: "bdabf5e9-23be-40a1-9f14-9117b6702a9d",
+          enigma: "XPA",
+          date: "2024-07-04",
+          time: "11:00",
+          content: "22345 23456 65432 98076 ...",
+          creator: "George, george@users.bg",
+          owner: "847ec027-f659-4086-8032-5173e2f9c93a",
+          comments: []
+        },
+        
+        "7b3143e1-d6df-4e67-bd7e-5f8b03f2fd3f": {
+          _id: "7b3143e1-d6df-4e67-bd7e-5f8b03f2fd3f",
+          enigma: "S06",
+          date: "2024-07-05",
+          time: "11:30",
+          content: "32345 23456 65432 98076 ...",
+          creator: "Admin, admin@abv.bg",
+          owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+          comments: []
+        }
+    }
+
+
+
+
+
+
     };
     var rules$1 = {
     	users: {

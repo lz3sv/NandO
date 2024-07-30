@@ -12,11 +12,8 @@ import { AuthContext } from "../../context/AuthContext";
 
 
 
-const baseUrl = 'http://localhost:3030/jsonstore'
-let owner = ""
-
 export default function EnigmaSection() {
-  const { userId } = useContext(AuthContext)
+  const { userId, username,email } = useContext(AuthContext)
   const [enigmas, setEnigma] = useState([])
   const [showAddEnigma, setShowAddEnigma] = useState(false)
   const [showEditEnigma, setShowEditEnigma] = useState(null)
@@ -79,34 +76,28 @@ export default function EnigmaSection() {
     //prevent reload
     e.preventDefault()
     //get Enigma data
+    const creator= username + ' , '+ email
     const formData = new FormData(e.currentTarget)
     const enigmaData = {
       ...Object.fromEntries(formData),
+      creator: creator,
       comments: [],
-      owner: "4fccdb3a-59c9-4e45-a28f-870fe5d1d8be"
+      owner: userId
     }
     //console.log(enigmaData)
     //make post request
-    const response = await fetch(`${baseUrl}/enigmas/enigma`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(enigmaData),
-    })
-    const createdEnigma = await response.json()
-    //console.log(responseData)
-    //update local state
-    setEnigma(oldEnigma => [createdEnigma, ...oldEnigma])
+    const updatedResponse= await enigmasAPI.create(enigmaData)
+    const enigmas = await enigmasAPI.getAll()
+    setEnigma(enigmas);
+    
     //close modal
-    setShowAddEnigma(false)
+    setShowAddEnigma(false);
   }
 
 //DETAILS 
-  const enigmaDetailsClickHandler = async (enigmaId, enigmaOwner) => {
-        const user =  await usersAPI.getUserDetails(enigmaOwner)
-        owner =  (user.username + " , " + user.email)
-        setShowEnigmaDetailsById(enigmaId, owner)
+  const enigmaDetailsClickHandler = async (enigmaId) => {
+
+        setShowEnigmaDetailsById(enigmaId)
   }
 
 
@@ -132,16 +123,10 @@ export default function EnigmaSection() {
     result['comments'].push(userId)
     // console.log('liked')
     // console.log(result)
-    
     const updatedResponse= await enigmasAPI.update(enigmaId, result)
-
     console.log(updatedResponse)
-
-    const response2 = await fetch(`${baseUrl}/enigmas/enigma`)
-    const result2 = await response2.json()
-    const enigmas = Object.values(result2)
+    const enigmas = await enigmasAPI.getAll()
     setEnigma(enigmas)
-
   }
 
 
@@ -152,10 +137,6 @@ export default function EnigmaSection() {
       return
     }
     //delete request to server
-    // const response = await fetch(`${baseUrl}/enigmas/enigma/${enigmaId}`, {
-    //   method: 'DELETE',
-
-    // })
 
     const response = await enigmasAPI.del(enigmaId)
     //delete from local state
@@ -192,7 +173,6 @@ export default function EnigmaSection() {
       {showEnigmaDetailsById && (
         <EnigmaDetails
           enigma={enigmas.find(enigma => enigma._id === showEnigmaDetailsById)}
-          owner={owner}
           onClose={() => setShowEnigmaDetailsById(null)}
         />)}
 

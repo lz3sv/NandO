@@ -23,7 +23,11 @@ function App() {
     //to do quick solution
     localStorage.setItem('accessToken', state.accessToken)
     setAuthState(state)
+
+    console.log(state)
   }
+
+
 
   const contextData = {
     email: authState.email,
@@ -33,6 +37,13 @@ function App() {
     isAuthenticated: !!authState.email,
     changeAuthState,
   }
+
+
+
+
+
+
+
 
   return (
     <>
@@ -45,7 +56,6 @@ function App() {
           <Route path="/create" element={<EnigmaSection />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
           <Route path="/catalog/:articleId" element={<Not404 />} />
           <Route path="/not-found" element={<Not404 />} />
           <Route path="*" element={<Not404 />} />
