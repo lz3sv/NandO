@@ -12,10 +12,10 @@ export default function Nav() {
     const navigate = useNavigate()
     const { isAuthenticated } = useContext(AuthContext)
 
-    const onClickLogout = () => {
+    const onClickLogout = async() => {
         
         const accessToken=localStorage.getItem('accessToken')
-        fetch('http://localhost:3030/users/logout',
+        await fetch('http://localhost:3030/users/logout',
             {
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ export default function Nav() {
                     <ul>
                         {/*All users*/}
                         <li><Link to="/about">Относно</Link></li>
-                        <li><Link to="/catalog">Последни публикации</Link></li>
+                        <li><Link to="/catalog">Публикации</Link></li>
 
                         {isAuthenticated
                             ?
