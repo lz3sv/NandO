@@ -16,10 +16,10 @@ export const useLogin=()=>{
 
 export const useLogout=()=>{
     const {changeAuthState}= useContext(AuthContext)
-    // const logoutHandler= async ()=>{
-    //     await logout()
-    //     return
-    // }
+     const logoutHandler= async ()=>{
+         await logout()
+         
+     }
     const authData={
         userId:'',
         username:'',

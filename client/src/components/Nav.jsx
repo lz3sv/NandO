@@ -1,21 +1,41 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import './Nav.css'
 import companyLogo from '../assets/logo.png'
 import { AuthContext } from '../context/AuthContext'
 
+
+
 export default function Nav() {
-  
+    const {changeAuthState}= useContext(AuthContext)
+    const navigate = useNavigate()
     const { isAuthenticated } = useContext(AuthContext)
-    // document.getElementById('logoutBtn').addEventListener('click' , async  ()=>{
-    //     console.log('natiskat me!!!!')
-    //     //await logout()
-    //     //updateNav()
-    //     //page.redirect('/')
-    // })
 
-
+    const onClickLogout = () => {
+        
+        const accessToken=localStorage.getItem('accessToken')
+        fetch('http://localhost:3030/users/logout',
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Authorization': accessToken
+                },
+                method: 'GET',
+            })
+            .then(() => {  
+                localStorage.removeItem('accessToken')
+                const authData={
+                    userId:'',
+                    username:'',
+                    email: '',
+                    accessToken: '',
+                    isAuthenticated: false,
+                }
+                changeAuthState(authData)
+                navigate('/')
+            })
+    }
 
     return (
         <>
@@ -32,8 +52,7 @@ export default function Nav() {
                             ?
                             <>
                                 <li><Link to="/create">Създай публикация</Link></li>
-                                <li><Link to="/logout" id="logoutBtn">Отписване</Link></li>
-
+                                <li><Link  onClick={onClickLogout}to="/logout" id="logoutBtn">Отписване</Link></li>
                             </>
                             :
                             <>

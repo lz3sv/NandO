@@ -23,7 +23,6 @@ function App() {
     //to do quick solution
     localStorage.setItem('accessToken', state.accessToken)
     setAuthState(state)
-
     console.log(state)
   }
 
