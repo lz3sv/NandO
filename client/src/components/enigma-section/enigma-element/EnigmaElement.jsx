@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 
 import './catalog.css'
-import { AuthContext, useAuthContext } from '../../../context/AuthContext'
+import { useAuthContext } from '../../../context/AuthContext'
 export default function EnigmaElement({
     enigma,
     onEnigmaDetailsClick,
@@ -23,6 +23,7 @@ export default function EnigmaElement({
             <td>{enigma.enigma}</td>
             <td>{enigma.date}</td>
             <td>{enigma.time}</td>
+            <td>{enigma.freq}</td>
             <td>{enigma.content.substr(0, 12) + '...'}</td>
             <td>{enigma.comments.length}</td>
 

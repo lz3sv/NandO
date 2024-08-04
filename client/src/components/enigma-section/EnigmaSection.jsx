@@ -14,7 +14,6 @@ export default function EnigmaSection() {
   const [showEditEnigma, setShowEditEnigma] = useState(null)
   const [showEnigmaDetailsById, setShowEnigmaDetailsById] = useState(null)
 
-
   useEffect(() => {
     try {
        ( async() =>{
@@ -46,6 +45,7 @@ export default function EnigmaSection() {
     result['enigma'] = enigmaData.enigma,
       result['date'] = enigmaData.date,
       result['time'] = enigmaData.time,
+      result['freq'] = enigmaData.freq,
       result['content'] = enigmaData.content
 
     const updatedResponse= await enigmasAPI.update(enigmaData._id, result)

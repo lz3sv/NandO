@@ -15,7 +15,7 @@ export default function Nav() {
 
             <div className="navigation">
                 <nav>
-                    <img src={companyLogo} alt="societe logo" />
+                    <Link to="/"><img src={companyLogo} alt="societe logo" /></Link>
                     <ul>
                         {/*All users*/}
                         <li><Link to="/about">Относно</Link></li>

@@ -10,13 +10,14 @@ export default function Catalog({
     //console.log(enigmas)
     
     return (
-        <div className="table-wrapper">
+        // <div className="table-wrapper">
         <table className="table">
             <thead>
                 <tr>
                     <th>Enigma</th>
                     <th>Дата</th>
                     <th>Час</th>
+                    <th>Честота (kHz)</th>
                     <th>Съобщение</th>
                     <th>Брой харесвания</th>
                     <th>Действие</th>
@@ -41,6 +42,6 @@ export default function Catalog({
   
             </tbody>
         </table>
-    </div>
+    // </div>
     )
 } 

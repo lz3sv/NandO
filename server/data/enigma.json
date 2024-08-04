@@ -4,6 +4,7 @@
         "enigma": "E11",
         "date": "2024-07-03",
         "time": "10:30",
+        "freq": "9150",
         "content": "12345 23456 65432 98076 ...",
         "creator": "Peter, peter@users.bg",
         "owner": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
@@ -14,6 +15,7 @@
         "enigma": "XPA",
         "date": "2024-07-04",
         "time": "11:00",
+        "freq": "7377",
         "content": "22345 23456 65432 98076 ...",
         "creator": "Peter, peter@users.bg",
         "owner": "562f8422-88cc-47f9-b273-ed12a319d041",
@@ -24,9 +26,22 @@
         "enigma": "S06",
         "date": "2024-07-05",
         "time": "11:30",
+        "freq": "13408",
         "content": "32345 23456 65432 98076 ...",
         "creator": "Peter, peter@users.bg",
         "owner": "8677c541-4041-4122-9db3-b88caf93e76d",
         "comments": []
+    },
+    "40c20a5f-3d28-4e80-8054-acb73e79e570": {
+        "enigma": "qwerty",
+        "date": "2024-08-05",
+        "time": "12:23",
+        "freq": "12457",
+        "content": "qaz wsx edc rfv",
+        "creator": "Admin , admin@abv.bg",
+        "comments": [],
+        "owner": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        "_id": "40c20a5f-3d28-4e80-8054-acb73e79e570"
     }
+
 }

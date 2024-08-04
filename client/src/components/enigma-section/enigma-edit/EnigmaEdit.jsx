@@ -64,11 +64,7 @@ const changeHandler=(e)=>{
                   />
                 </div>
               </div>
-            </div>
-            
 
-
-            <div className="form-row">
               <div className="form-group">
                 <label htmlFor="firstName">Enigma</label>
                 <div className="input-wrapper">
@@ -80,6 +76,9 @@ const changeHandler=(e)=>{
                     onChange={changeHandler}/>
                 </div>
               </div>
+            </div>
+
+            <div className="form-row">
               <div className="form-group">
                 <label htmlFor="date">Дата</label>
                 <div className="input-wrapper">
@@ -91,7 +90,19 @@ const changeHandler=(e)=>{
                     onChange={changeHandler}/>
                 </div>
               </div>
+              <div className="form-group">
+                <label htmlFor="freq">Честота</label>
+                <div className="input-wrapper">
+                  <input 
+                    id="freq" 
+                    name="freq" 
+                    type="freq" 
+                    defaultValue={enigma.freq} 
+                    onChange={changeHandler}/>
+                </div>
+              </div>
             </div>
+            
 
             <div className="form-row">
               <div className="form-group">

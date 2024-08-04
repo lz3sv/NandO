@@ -15,6 +15,7 @@ export default function Create() {
     const addEnigmaCloseHandler = () => {
         const modal=document.getElementById('overlay')
         modal.style.display = "none";
+        navigate('/catalog')
     }
 
 

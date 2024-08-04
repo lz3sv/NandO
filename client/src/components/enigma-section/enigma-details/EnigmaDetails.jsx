@@ -23,12 +23,13 @@ export default function EnigmaDetails(
 
                             <div className="enigma-details">
                                 <p>Enigma Id: <strong>{enigma._id}</strong></p>
-                                <p>Enigma: <strong>  {enigma.enigma}</strong></p>
-                                <p>Date: <strong>{enigma.date}</strong></p>
-                                <p>Time: <strong>{enigma.time}</strong></p>
-                                <p>Message: <strong> {enigma.content}</strong></p>
-                                <p>Creator: <strong>{enigma.creator}</strong></p>
-                                <p>likes: <strong>{enigma.comments.length}</strong></p>
+                                <p>Станция: <strong>  {enigma.enigma}</strong></p>
+                                <p>Дата: <strong>{enigma.date}</strong></p>
+                                <p>Време: <strong>{enigma.time}</strong></p>
+                                <p>Честота: <strong>{enigma.freq}</strong></p>
+                                <p>Съобщение: <strong> {enigma.content}</strong></p>
+                                <p>Създател: <strong>{enigma.creator}</strong></p>
+                                <p>харесвания: <strong>{enigma.comments.length}</strong></p>
                             </div>
                         </div>
                     </div>

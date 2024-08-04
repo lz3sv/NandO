@@ -32,19 +32,26 @@ export default function EnigmaAdd({
                   <input id="enigma" name="enigma" type="text" />
                 </div>
               </div>
+            </div>
+            <div className="form-row">
               <div className="form-group">
                 <label htmlFor="date">Дата</label>
                 <div className="input-wrapper">
                   <input id="date" name="date" type="date" />
                 </div>
               </div>
-            </div>
-
-            <div className="form-row">
               <div className="form-group">
                 <label htmlFor="time">Начален час</label>
                 <div className="input-wrapper">
                   <input id="time" name="time" type="time" />
+                </div>
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="freq">Честота (kHz)</label>
+                <div className="input-wrapper">
+                <input id="freq" name="freq" type='number' />
                 </div>
               </div>
               <div className="form-group">
