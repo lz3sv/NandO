@@ -1,41 +1,14 @@
-import { useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './Nav.css'
 import companyLogo from '../assets/logo.png'
-import { AuthContext, useAuthContext } from '../context/AuthContext'
+import { useAuthContext } from '../context/AuthContext'
 
 
 
 export default function Nav() {
-    const {changeAuthState}= useAuthContext()
-    const navigate = useNavigate()
-    const { isAuthenticated } = useAuthContext()
 
-    const onClickLogout = async() => {
-        
-        const accessToken=localStorage.getItem('accessToken')
-        await fetch('http://localhost:3030/users/logout',
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Authorization': accessToken
-                },
-                method: 'GET',
-            })
-            .then(() => {  
-                localStorage.removeItem('accessToken')
-                const authData={
-                    userId:'',
-                    username:'',
-                    email: '',
-                    accessToken: '',
-                    isAuthenticated: false,
-                }
-                changeAuthState(authData)
-                navigate('/')
-            })
-    }
+    const { isAuthenticated } = useAuthContext()
 
     return (
         <>
@@ -52,7 +25,7 @@ export default function Nav() {
                             ?
                             <>
                                 <li><Link to="/create">Създай публикация</Link></li>
-                                <li><Link  onClick={onClickLogout}to="/logout" id="logoutBtn">Отписване</Link></li>
+                                <li><Link  to="/logout" id="logoutBtn">Отписване</Link></li>
                             </>
                             :
                             <>
@@ -71,4 +44,3 @@ export default function Nav() {
 }
 
 
-//"In God we trust and everything else we check."

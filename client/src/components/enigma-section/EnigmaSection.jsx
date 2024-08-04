@@ -1,20 +1,16 @@
 import { useState, useEffect } from "react";
-import { useContext } from 'react'
 
 import enigmasAPI from "../../api/enigmas-api";
-import { useGetAllEnigmas, useGetOneEnigmas } from "../../hooks/useEnigmas";
-import EnigmaAdd from "./enigma-add/EnigmaAdd";
 import EnigmaDetails from "./enigma-details/EnigmaDetails";
 import EnigmaEdit from "./enigma-edit/EnigmaEdit";
 import Catalog from "./enigma-list/catalog";
-import { AuthContext, useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 
 
 
 export default function EnigmaSection() {
-  const { userId, username, email } = useAuthContext()
+  const { userId } = useAuthContext()
   const [enigmas, setEnigma] = useState([])
-  //const [showAddEnigma, setShowAddEnigma] = useState(false)
   const [showEditEnigma, setShowEditEnigma] = useState(null)
   const [showEnigmaDetailsById, setShowEnigmaDetailsById] = useState(null)
 
@@ -31,13 +27,6 @@ export default function EnigmaSection() {
   }, [])
 
 
-  // const addEnigmaClickHandler = () => {
-  //   setShowAddEnigma(true)
-  // }
-
-  // const addEnigmaCloseHandler = () => {
-  //   setShowAddEnigma(false)
-  // }
 
 //EDIT
   const editEnigmaSave = async (e) => {
@@ -70,28 +59,6 @@ export default function EnigmaSection() {
   }
 
 
-  //CREATE
-  const addEnigmaSave = async (e) => {
-    //prevent reload
-    e.preventDefault()
-    //get Enigma data
-    const creator= username + ' , '+ email
-    const formData = new FormData(e.currentTarget)
-    const enigmaData = {
-      ...Object.fromEntries(formData),
-      creator: creator,
-      comments: [],
-      owner: userId
-    }
-    //console.log(enigmaData)
-    //make post request
-    const updatedResponse= await enigmasAPI.create(enigmaData)
-    const enigmas = await enigmasAPI.getAll()
-    setEnigma(enigmas);
-    
-    //close modal
-    setShowAddEnigma(false);
-  }
 
 //DETAILS 
   const enigmaDetailsClickHandler = async (enigmaId) => {
@@ -156,11 +123,6 @@ export default function EnigmaSection() {
         onEnigmaLikeClick={enigmaLikeClickHandler}
       />
 
-      {/* {showAddEnigma && <EnigmaAdd
-        onClose={addEnigmaCloseHandler}
-        onSave={addEnigmaSave}
-
-      />} */}
 
       {showEditEnigma && (<EnigmaEdit
         onClose={() => setShowEditEnigma(null)}
@@ -175,8 +137,6 @@ export default function EnigmaSection() {
           onClose={() => setShowEnigmaDetailsById(null)}
         />)}
 
-      {/*<!-- New user button  */}
-      {/* <button className="btn-add btn" onClick={addEnigmaClickHandler}>Add new Enigma</button> */}
 
 
     </section>

@@ -1,18 +1,8 @@
-import { useNavigate } from "react-router-dom"
+import {Navigate} from 'react-router-dom'
 import {  useLogout } from '../hooks/useAuth'
 
-
-
-export default async function Logout(){
-    const navigate = useNavigate()
-    //await usersAPI.getLogout()
-    //useLogout()
-    //navigate('/')
-    //localStorage.removeItem("accessToken");
-    return (
-        <>
-
-        <p>Otpiswane!</p>
-        </>
-    )
-}
+export default function Logout(){
+    const logout=useLogout()
+    logout()
+    return <Navigate to="/"/>
+} 

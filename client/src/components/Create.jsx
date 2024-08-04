@@ -1,8 +1,7 @@
 import { useState } from "react"
-import { useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 
-import { AuthContext, useAuthContext } from "../context/AuthContext";
+import {useAuthContext } from "../context/AuthContext";
 import EnigmaAdd from "./enigma-section/enigma-add/EnigmaAdd"
 
 
