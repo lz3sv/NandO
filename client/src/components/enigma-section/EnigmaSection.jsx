@@ -2,20 +2,19 @@ import { useState, useEffect } from "react";
 import { useContext } from 'react'
 
 import enigmasAPI from "../../api/enigmas-api";
-import usersAPI from "../../api/users-api";
 import { useGetAllEnigmas, useGetOneEnigmas } from "../../hooks/useEnigmas";
 import EnigmaAdd from "./enigma-add/EnigmaAdd";
 import EnigmaDetails from "./enigma-details/EnigmaDetails";
 import EnigmaEdit from "./enigma-edit/EnigmaEdit";
 import Catalog from "./enigma-list/catalog";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext, useAuthContext } from "../../context/AuthContext";
 
 
 
 export default function EnigmaSection() {
-  const { userId, username,email } = useContext(AuthContext)
+  const { userId, username, email } = useAuthContext()
   const [enigmas, setEnigma] = useState([])
-  const [showAddEnigma, setShowAddEnigma] = useState(false)
+  //const [showAddEnigma, setShowAddEnigma] = useState(false)
   const [showEditEnigma, setShowEditEnigma] = useState(null)
   const [showEnigmaDetailsById, setShowEnigmaDetailsById] = useState(null)
 
@@ -32,13 +31,13 @@ export default function EnigmaSection() {
   }, [])
 
 
-  const addEnigmaClickHandler = () => {
-    setShowAddEnigma(true)
-  }
+  // const addEnigmaClickHandler = () => {
+  //   setShowAddEnigma(true)
+  // }
 
-  const addEnigmaCloseHandler = () => {
-    setShowAddEnigma(false)
-  }
+  // const addEnigmaCloseHandler = () => {
+  //   setShowAddEnigma(false)
+  // }
 
 //EDIT
   const editEnigmaSave = async (e) => {
@@ -157,11 +156,11 @@ export default function EnigmaSection() {
         onEnigmaLikeClick={enigmaLikeClickHandler}
       />
 
-      {showAddEnigma && <EnigmaAdd
+      {/* {showAddEnigma && <EnigmaAdd
         onClose={addEnigmaCloseHandler}
         onSave={addEnigmaSave}
 
-      />}
+      />} */}
 
       {showEditEnigma && (<EnigmaEdit
         onClose={() => setShowEditEnigma(null)}
@@ -177,7 +176,7 @@ export default function EnigmaSection() {
         />)}
 
       {/*<!-- New user button  */}
-      <button className="btn-add btn" onClick={addEnigmaClickHandler}>Add new Enigma</button>
+      {/* <button className="btn-add btn" onClick={addEnigmaClickHandler}>Add new Enigma</button> */}
 
 
     </section>

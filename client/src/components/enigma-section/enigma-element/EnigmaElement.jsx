@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 
 import './catalog.css'
-import { AuthContext } from '../../../context/AuthContext'
+import { AuthContext, useAuthContext } from '../../../context/AuthContext'
 export default function EnigmaElement({
     enigma,
     onEnigmaDetailsClick,
@@ -13,7 +13,7 @@ export default function EnigmaElement({
     onEnigmaLikeClick,
 
 }) {
-    const { isAuthenticated, userId } = useContext(AuthContext)
+    const { isAuthenticated, userId } = useAuthContext()
     //console.log(enigma)
 
     return (

@@ -3,14 +3,14 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import './Nav.css'
 import companyLogo from '../assets/logo.png'
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext, useAuthContext } from '../context/AuthContext'
 
 
 
 export default function Nav() {
-    const {changeAuthState}= useContext(AuthContext)
+    const {changeAuthState}= useAuthContext()
     const navigate = useNavigate()
-    const { isAuthenticated } = useContext(AuthContext)
+    const { isAuthenticated } = useAuthContext()
 
     const onClickLogout = async() => {
         
