@@ -6,4 +6,4 @@ export const login= (email, password)=> requester.post(`${BASE_URL}/login`, {ema
 
 export const register= (email, username, password)=> requester.post(`${BASE_URL}/register`, {email, username, password})
 
-export const logout= ()=> requester.get(`${BASE_URL}/logout`)
+export const logout= async ()=> await requester.get(`${BASE_URL}/logout`)
