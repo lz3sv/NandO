@@ -34,13 +34,8 @@
   color: white;
 }
 
-
-/* Change the color of links on hover */
-.navigation a:hover {
-
-}
-
-/* Add a color to the active/current link */
-.navigation a.active {
-
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

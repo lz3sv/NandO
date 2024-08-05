@@ -1,113 +1,139 @@
 
 /* Table  */
-.table-wrapper {
-    position: relative;
-    /* height: calc(100vh - 20rem - 40px); */
-    height: 240px;
-    overflow-y: scroll;
-    background: white;
-    overflow: auto;
-    width: 100%;
-    margin-bottom: 5px;
-  }
-  
-  .table {
-    width: 100%;
-  }
-  
-  .table thead {
-    position: sticky;
-    width: 100%;
-    top: 0;
-    background: white;
-    z-index: 1;
-  }
-  .table thead tr {
-    background-color: #2a87a5;
-    color: white;
-  }
-  .table th {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-  }
-  
+ 
+.table {
+  width: 100%;
+}
 
-  
-  .icon {
-    height: 13px;
-  }
-  
+.table thead {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+.table thead tr {
+  background-color: #2a87a5;
+  color: white;
+}
+.table th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
 
-  
-  .table th .icon {
-    margin-left: 10px;
-    opacity: 0;
-  }
-  
-  .table th .active-icon {
-    opacity: 1;
-  }
-  
-  .table tr th,
-  .table tr td {
-    width: 14.28%;
-  }
-  
-  .table tbody tr {
-    margin: 0px 5px;
-    height: 64px;
-  }
-  .table tbody td {
-    line-height: 1.5rem;
-    text-align: center;
-    vertical-align: middle;
-    font-weight: 300;
-    padding: 5px;
-    height: 64px;
-  }
-  
-  .table td.center {
-    text-align: center;
-  }
-  .table tbody {
-    position: relative;
-  }
-  
-  .table tbody tr:nth-child(1n) {
-    background: rgba(7, 6, 6, 0.3);
-    color: white;
-  }
-  .table tbody tr:nth-child(2n) {
-    background: rgba(199, 198, 198, 0.3);
-    color: black;
-  }
-  
-  .table tbody tr:hover {
-    background: rgba(90, 133, 150, 0.514);
-  }
-  
-  .table tr.loading {
-    background-color: transparent !important;
-  }
-  
-  
-  .no-content {
-    text-align: center;
-  }
-  
-  .error {
-    text-align: center;
-    color: #943232;
-  }
-  
-  .no-content .icon,
-  .error .icon {
-    font-size: 5rem;
-    color: #943232;
-  }
-  
-  
-  
+
+.icon {
+  height: 13px;
+}
+
+
+
+.table tr th,
+.table tr td {
+  width: 14.28%;
+}
+
+.table tbody tr {
+  margin: 0px 5px;
+  height: 64px;
+}
+.table tbody td {
+  line-height: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 300;
+  padding: 5px;
+  height: 64px;
+}
+
+.table td.center {
+  text-align: center;
+}
+.table tbody {
+  position: relative;
+}
+
+.table tbody tr:nth-child(1n) {
+  background: rgba(7, 6, 6, 0.3);
+  color: white;
+}
+.table tbody tr:nth-child(2n) {
+  background: rgba(199, 198, 198, 0.3);
+  color: black;
+}
+
+.table tbody tr:hover {
+  background: rgba(90, 133, 150, 0.514);
+}
+
+
+.no-content {
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+  color: #943232;
+}
+
+.no-content .icon,
+.error .icon {
+  font-size: 5rem;
+  color: #943232;
+}
+
+
+
+/* Section  */
+.card {
+width: 100%;
+background-color: white;
+}
+
+.enigmas-container {
+width: 100%;
+}
+
+
+.btn {
+  background: #2a87a5;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-weight: bold;
+}
+
+
+/* .btn {
+padding: 5px;
+color: white;
+opacity: 0.7;
+width: 30px;
+height: 30px;
+} */
+.btn svg {
+margin: 0;
+}
+
+.btn:hover {
+opacity: 1;
+}
+
+.delete-btn {
+background-color: #d9534f;
+}
+
+.edit-btn {
+background-color: #5cb85c;
+}
+
+.like-btn {
+background-color: #fca606;
+}

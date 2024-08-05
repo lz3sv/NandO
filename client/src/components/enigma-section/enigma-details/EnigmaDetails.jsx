@@ -15,8 +15,8 @@ export default function EnigmaDetails(
                     <div className="detail-container">
                         <header className="headers">
                             <h2>Подробни данни за записа</h2>
-                            <button className="btn close" onClick={onClose}>
-                                <i className="glyphicon glyphicon-remove"></i>
+                            <button className="btn close" onClick={onClose}> Затвори
+                               
                             </button>
                         </header>
                         <div className="content">
