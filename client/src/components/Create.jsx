@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import {useAuthContext } from "../context/AuthContext";
 import EnigmaAdd from "./enigma-section/enigma-add/EnigmaAdd"
+import { formValidation } from "../util/formValidation";
 
 
 export default function Create() {
@@ -32,6 +33,15 @@ export default function Create() {
             comments: [],
             owner: userId
         }
+
+
+        const invalid=formValidation(enigmaData)
+        if(invalid){
+          alert(invalid)
+          return
+        }
+
+
         console.log('nowata enigma:')
         console.log(enigmaData)
 
