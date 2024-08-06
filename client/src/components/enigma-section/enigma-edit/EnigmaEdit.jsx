@@ -7,7 +7,7 @@ export default function EnigmaEdit({
     
 }){
 
-  const [formValues,setFormValues]= useState({
+  const [setFormValues]= useState({
     enigma:'',
     date:'',
     time:'',
@@ -19,14 +19,14 @@ export default function EnigmaEdit({
 
 
 
-const formSubmitHandler = (e) => {
-  e.preventDefault()
-  console.log('form submitted!')
-}
+// const formSubmitHandler = (e) => {
+//   e.preventDefault()
+//   console.log('form submitted!')
+// }
 
 const changeHandler=(e)=>{
-  console.log(e.target.name)
-  console.log(e.target.checked)
+  //console.log(e.target.name)
+  //console.log(e.target.checked)
   setFormValues(oldValues=>({
       ...oldValues,
      [e.target.name]: e.target.value //|| e.target.checked,
@@ -96,7 +96,7 @@ const changeHandler=(e)=>{
                   <input 
                     id="freq" 
                     name="freq" 
-                    type="freq" 
+                    type="number" 
                     defaultValue={enigma.freq} 
                     onChange={changeHandler}/>
                 </div>
