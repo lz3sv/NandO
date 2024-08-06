@@ -41,7 +41,7 @@ export default function EnigmaAdd({
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="time">Начален час</label>
+                <label htmlFor="time">Нач. час (UTC)</label>
                 <div className="input-wrapper">
                   <input id="time" name="time" type="time" />
                 </div>
@@ -57,7 +57,7 @@ export default function EnigmaAdd({
               <div className="form-group">
                 <label htmlFor="content">Съобщение</label>
                 <div className="input-wrapper">
-                  <textarea id="content" name="content" ></textarea>
+                  <textarea id="content" name="content"></textarea>
                 </div>
               </div>
             </div>
