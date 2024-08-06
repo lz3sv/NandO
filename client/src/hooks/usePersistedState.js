@@ -18,7 +18,7 @@ export default function usePersistedState(key, initialState){
         : value;
 
 
-            localStorage.setItem(key, JSON.stringify(value))
+        localStorage.setItem(key, JSON.stringify(value))
 
 
        

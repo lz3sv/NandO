@@ -51,7 +51,7 @@ export default function EnigmaAdd({
               <div className="form-group">
                 <label htmlFor="freq">Честота (kHz)</label>
                 <div className="input-wrapper">
-                <input id="freq" name="freq" type='number' />
+                  <input id="freq" name="freq" type='number' />
                 </div>
               </div>
               <div className="form-group">

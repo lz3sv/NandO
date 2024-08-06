@@ -9,7 +9,7 @@ import Register from './components/Register'
 import Nav from "./components/Nav"
 import EnigmaSection from "./components/enigma-section/EnigmaSection"
 import Create from "./components/Create"
-import { AuthContext, AuthContextProvider } from './context/AuthContext'
+import {AuthContextProvider } from './context/AuthContext'
 import Logout from "./components/Logout"
 import PrivateGuard from "./components/common/privateGuard"
 
