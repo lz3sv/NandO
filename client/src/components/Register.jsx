@@ -14,6 +14,13 @@ export default function Register(){
     const register = useRegister()
     const navigate = useNavigate()
     const registerHandler = async ( values ) => {
+
+        if (values.password.length<6) {
+            setError('Weak password!')
+            alert('Паролата трябва да съдържа поне 6 символа!')
+            return
+        }
+
         if (values.password !== values.repass) {
             setError('Password mismatch!')
             alert('Няма съвпадение при паролите!')
