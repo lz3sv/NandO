@@ -18,7 +18,8 @@ export const useLogout=()=>{
     
     const logoutHandler=async ()=> {
             await logout()
-            localLogout()
+            await localLogout()
+            localStorage.clear()
     }
     return logoutHandler
 }

@@ -19,6 +19,7 @@ export function AuthContextProvider(props){
                 //to do quick solution
                 localStorage.setItem('accessToken', state.accessToken)
                 setAuthState(state)
+                
         }
 
         const logout =()=>{

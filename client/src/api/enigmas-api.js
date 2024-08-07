@@ -1,6 +1,7 @@
 import requester from './requester'
 
 const BASE_URL='http://localhost:3030/jsonstore/enigma'
+
 export const getAll = async () => {
     const response= await requester.get(BASE_URL)
     const enigmas=Object.values(response).reverse()
