@@ -1,10 +1,9 @@
 
-
-
-
+import { Link } from 'react-router-dom'
 
 import './catalog.css'
 import { useAuthContext } from '../../../context/AuthContext'
+
 export default function EnigmaElement({
     enigma,
     onEnigmaDetailsClick,
@@ -29,16 +28,21 @@ export default function EnigmaElement({
 
 
             <td className="actions">
-                <button className="btn info-btn" title="Info" onClick={() => onEnigmaDetailsClick(enigma._id, enigma.owner)}><i className="fa fa-info-circle"></i></button>
+                    <Link to ={`/catalog/${enigma._id}/details`}>
+                        <button className="btn info-btn" title="Details"><i className="fa fa-info-circle"></i></button>
+                    </Link>
                 {isAuthenticated
                     ?
                     <>
                         {enigma.owner === userId
                             ?
                             <>
-                                <button className="btn edit-btn" title="Edit" onClick={() => onEnigmaEditClick(enigma._id)}><i className="fa fa-edit"></i></button>
-                                <button className="btn delete-btn" title="Delete" onClick={() => onEnigmaDeleteClick(enigma._id)}><i className="fa fa-trash"></i></button>
-                                
+                                <Link to ={`/catalog/${enigma._id}/details`}>
+                                    <button className="btn edit-btn" title="Edit"><i className="fa fa-edit"></i></button>
+                                </Link>
+                                <Link to ={`/catalog/${enigma._id}/delete`}>
+                                    <button className="btn delete-btn" title="Delete"><i className="fa fa-trash"></i></button>
+                                </Link>
                             </>
                             :
                             <button className="btn like-btn" title="Like" onClick={() => onEnigmaLikeClick(enigma._id)}><i className="fa fa-thumbs-up"></i></button>

@@ -12,6 +12,7 @@ import Create from "./components/Create/Create"
 import {AuthContextProvider } from './context/AuthContext'
 import Logout from "./components/Logout/Logout"
 import PrivateGuard from "./components/common/privateGuard"
+import EnigmaDetails from "./components/Details/EnigmaDetails"
 
 
 
@@ -33,7 +34,7 @@ function App() {
               <Route path="/create" element={<Create />} />
           </Route>
           <Route path="/catalog/:articleId/edit" element={<Not404 />} />
-          <Route path="/catalog/:articleId/details" element={<Not404 />} />
+          <Route path="/catalog/:articleId/details" element={<EnigmaDetails />} />
           <Route path="/catalog/:articleId/delete" element={<Not404 />} />
           <Route path="/not-found" element={<Not404 />} />
           <Route path="*" element={<Not404 />} />

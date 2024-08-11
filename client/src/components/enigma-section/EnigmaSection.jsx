@@ -6,6 +6,7 @@ import EnigmaEdit from "./enigma-edit/EnigmaEdit";
 import Catalog from "./enigma-list/catalog";
 import { useAuthContext } from "../../context/AuthContext";
 import { formValidation } from "../../util/formValidation";
+import { Navigate } from "react-router-dom";
 
 
 
@@ -71,9 +72,11 @@ export default function EnigmaSection() {
 
 //DETAILS 
   const enigmaDetailsClickHandler = async (enigmaId) => {
-
-        setShowEnigmaDetailsById(enigmaId)
+      console.log('wlizam do tuk');
+        // setShowEnigmaDetailsById(enigmaId)
+       return  <Navigate to= {`/catalog/${enigmaId}/details`} />
   }
+
 
 
   //Show edit Modal

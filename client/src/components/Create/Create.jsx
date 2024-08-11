@@ -118,10 +118,10 @@ export default function Create() {
                     </div>
 
                     <div id="form-actions">
-                    <button id="action-save" className="btn" type="submit" >Save</button>
+                    <button id="action-save" className="btn" type="submit" >ЗАПИШИ</button>
                     <Link to="/catalog" className='bold'>
                         <button id="action-cancel" className="btn" type="button" >
-                            Cancel
+                            ОТКАЗ
                         </button>
                     </Link>
                 </div>
