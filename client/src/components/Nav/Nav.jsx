@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
 import './Nav.css'
-import companyLogo from '../assets/logo.png'
-import { useAuthContext } from '../context/AuthContext'
+import companyLogo from '../../assets/logo.png'
+import { useAuthContext } from '../../context/AuthContext'
 
 
 

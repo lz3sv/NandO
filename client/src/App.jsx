@@ -2,15 +2,15 @@
 import { Routes, Route } from "react-router-dom"
 
 import './App.css'
-import About from './components/About'
-import Not404 from './components/Not404'
-import Login from './components/Login'
-import Register from './components/Register'
-import Nav from "./components/Nav"
+import About from './components/About/About'
+import Not404 from './components/Not/Not404'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
+import Nav from "./components/Nav/Nav"
 import EnigmaSection from "./components/enigma-section/EnigmaSection"
-import Create from "./components/Create"
+import Create from "./components/Create/Create"
 import {AuthContextProvider } from './context/AuthContext'
-import Logout from "./components/Logout"
+import Logout from "./components/Logout/Logout"
 import PrivateGuard from "./components/common/privateGuard"
 
 
@@ -32,8 +32,9 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/create" element={<Create />} />
           </Route>
-          
-          <Route path="/catalog/:articleId" element={<Not404 />} />
+          <Route path="/catalog/:articleId/edit" element={<Not404 />} />
+          <Route path="/catalog/:articleId/details" element={<Not404 />} />
+          <Route path="/catalog/:articleId/delete" element={<Not404 />} />
           <Route path="/not-found" element={<Not404 />} />
           <Route path="*" element={<Not404 />} />
         </Routes>

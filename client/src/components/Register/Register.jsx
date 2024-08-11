@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './Register.css'
-import { useForm } from '../hooks/useForm'
+import { useForm } from '../../hooks/useForm'
 import { useState } from 'react'
-import { useRegister } from '../hooks/useAuth'
+import { useRegister } from '../../hooks/useAuth'
 
 
 const initialValues = { email: '', username: '', password: '', repass: '' }
