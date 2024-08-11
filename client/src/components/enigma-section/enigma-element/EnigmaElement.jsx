@@ -24,7 +24,7 @@ export default function EnigmaElement({
             <td>{enigma.time}</td>
             <td>{enigma.freq}</td>
             <td>{enigma.content.substr(0, 12) + '...'}</td>
-            <td>{enigma.comments.length}</td>
+            <td>{enigma.likes.length}</td>
 
 
             <td className="actions">
@@ -37,7 +37,7 @@ export default function EnigmaElement({
                         {enigma.owner === userId
                             ?
                             <>
-                                <Link to ={`/catalog/${enigma._id}/details`}>
+                                <Link to ={`/catalog/${enigma._id}/edit`}>
                                     <button className="btn edit-btn" title="Edit"><i className="fa fa-edit"></i></button>
                                 </Link>
                                 <Link to ={`/catalog/${enigma._id}/delete`}>

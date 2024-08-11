@@ -1,11 +1,20 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 
-import './EnigmaDetails2.css'
+import './EnigmaDelete.css'
 import { useGetOneEnigmas } from '../../hooks/useEnigmas'
+import enigmasAPI from '../../api/enigmas-api'
 
-export default function EnigmaDetails() {
+export default function EnigmaDelete() {
     const { enigmaId } = useParams()
     const [enigma] = useGetOneEnigmas(enigmaId)
+
+    const enigmaDeleteClickHandler = async () => {
+        //delete request to server
+        const response = await enigmasAPI.del(enigmaId)
+         return <Navigate to="/catalog"/>
+    }
+
+
     return (
 
 
@@ -15,7 +24,7 @@ export default function EnigmaDetails() {
 
             <div className="detail-container">
                 <header className="DetailHeaders">
-                    <h1>Подробни данни за записа</h1>
+                    <h1>Изтриване на запис</h1>
                 </header>
                 <hr />
                 <div className="content">
@@ -31,12 +40,15 @@ export default function EnigmaDetails() {
                         <p>Брой харесвания: <strong>{enigma.likes?.length}</strong></p>
                     </div>
                 </div>
-                <br/>
+                <br />
                 <div className="buttons">
-                <Link to="/catalog" className='bold'>
-                    <button className="btn-return" id="action-return"> НАЗАД </button>
-                </Link>
-            </div>
+                        <Link to="/catalog" className='bold'>
+                            <button className="floated" id="action-return"> НАЗАД </button>
+                        </Link>
+                        <Link to="/catalog" className='bold'>
+                            <button className="floated" id="action-delete" onClick={enigmaDeleteClickHandler}> ПОТВЪРЖДАВАМ </button>
+                        </Link>
+                </div>
             </div>
 
 

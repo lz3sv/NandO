@@ -24,7 +24,7 @@ export default function Create() {
         const enigmaData = {
             ...values,
             creator: creator,
-            comments: [],
+            likes: [],
             owner: userId
         }
         const invalid=formValidation(enigmaData)

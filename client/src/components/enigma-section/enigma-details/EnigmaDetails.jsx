@@ -29,7 +29,7 @@ export default function EnigmaDetails(
                                 <p>Честота: <strong>{enigma.freq} kHz</strong></p>
                                 <p>Съобщение: <strong> {enigma.content}</strong></p>
                                 <p>Създател: <strong>{enigma.creator}</strong></p>
-                                <p>харесвания: <strong>{enigma.comments.length}</strong></p>
+                                <p>харесвания: <strong>{enigma.likes.length}</strong></p>
                             </div>
                         </div>
                     </div>

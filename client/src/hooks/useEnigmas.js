@@ -17,11 +17,12 @@ export function useGetAllEnigmas(){
 
 export function useGetOneEnigmas(enigmaId){
 const [enigma, setEnigma]=useState({})
-
+    //console.log('wlizam w hook-a', enigmaId)
     useEffect(()=>{
         (async ()=>{
             const result= await enigmasAPI.getOne(enigmaId)
-            //console.log(game.comments)
+            console.log('from hook')
+            console.log(result)
             setEnigma(result)
         })()
     },[enigmaId])

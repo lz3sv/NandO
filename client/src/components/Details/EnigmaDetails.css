@@ -1,5 +1,6 @@
 .details-box {
     color: rgb(2, 2, 2);
+    display: block;
     width: 380px;
     height: 500px;
     margin: auto;

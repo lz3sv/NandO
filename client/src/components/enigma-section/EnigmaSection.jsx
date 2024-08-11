@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
 
 import enigmasAPI from "../../api/enigmas-api";
-import EnigmaDetails from "./enigma-details/EnigmaDetails";
 import EnigmaEdit from "./enigma-edit/EnigmaEdit";
 import Catalog from "./enigma-list/catalog";
 import { useAuthContext } from "../../context/AuthContext";
 import { formValidation } from "../../util/formValidation";
-import { Navigate } from "react-router-dom";
-
 
 
 export default function EnigmaSection() {
   const { userId } = useAuthContext()
   const [enigmas, setEnigma] = useState([])
   const [showEditEnigma, setShowEditEnigma] = useState(null)
-  const [showEnigmaDetailsById, setShowEnigmaDetailsById] = useState(null)
+
 
   useEffect(() => {
     try {
@@ -52,11 +49,12 @@ export default function EnigmaSection() {
     }
 
 
-    result['enigma'] = enigmaData.enigma,
+      result['enigma'] = enigmaData.enigma,
       result['date'] = enigmaData.date,
       result['time'] = enigmaData.time,
       result['freq'] = enigmaData.freq,
       result['content'] = enigmaData.content
+      //result['likes']=[]
 
     const updatedResponse= await enigmasAPI.update(enigmaData._id, result)
 
@@ -67,16 +65,6 @@ export default function EnigmaSection() {
 
 
   }
-
-
-
-//DETAILS 
-  const enigmaDetailsClickHandler = async (enigmaId) => {
-      console.log('wlizam do tuk');
-        // setShowEnigmaDetailsById(enigmaId)
-       return  <Navigate to= {`/catalog/${enigmaId}/details`} />
-  }
-
 
 
   //Show edit Modal
@@ -94,11 +82,11 @@ export default function EnigmaSection() {
     // console.log('unliked')
     // console.log(result)
     //Update Data
-    if (result['comments'].includes(userId)){
+    if (result['likes'].includes(userId)){
       alert ("Вече сте харесали тази публикация.")
       return
     }
-    result['comments'].push(userId)
+    result['likes'].push(userId)
     // console.log('liked')
     // console.log(result)
     const updatedResponse= await enigmasAPI.update(enigmaId, result)
@@ -108,19 +96,7 @@ export default function EnigmaSection() {
   }
 
 
-  //DELETE ENIGMA
-  const enigmaDeleteClickHandler = async (enigmaId) => {
-    //console.log(enigmaId)
-    if (confirm("Желаете ли да изтриете записа?\nИзберете OK или Cancel.") == false) {
-      return
-    }
-    //delete request to server
 
-    const response = await enigmasAPI.del(enigmaId)
-    //delete from local state
-    setEnigma(oldEnigmas => oldEnigmas.filter(enigma => enigma._id !== enigmaId))
-
-  }
 
   return (
     <section className="card enigmas-container">
@@ -129,8 +105,6 @@ export default function EnigmaSection() {
       {/*<!-- Table component */}
       <Catalog
         enigmas={enigmas}
-        onEnigmaDetailsClick={enigmaDetailsClickHandler}
-        onEnigmaDeleteClick={enigmaDeleteClickHandler}
         onEnigmaEditClick={enigmaEditClickHandler}
         onEnigmaLikeClick={enigmaLikeClickHandler}
       />
@@ -141,14 +115,6 @@ export default function EnigmaSection() {
         onUpdate={editEnigmaSave}
         enigma={enigmas.find(enigma => enigma._id === showEditEnigma)}
       />)}
-
-
-      {showEnigmaDetailsById && (
-        <EnigmaDetails
-          enigma={enigmas.find(enigma => enigma._id === showEnigmaDetailsById)}
-          onClose={() => setShowEnigmaDetailsById(null)}
-        />)}
-
 
 
     </section>
