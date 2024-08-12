@@ -23,8 +23,8 @@ export default function EnigmaElement({
             <td>{enigma.date}</td>
             <td>{enigma.time}</td>
             <td>{enigma.freq}</td>
-            <td>{enigma.content.substr(0, 12) + '...'}</td>
-            <td>{enigma.likes.length}</td>
+            <td>{enigma.content?.substr(0, 12) + '...'}</td>
+            <td>{enigma.likes?.length}</td>
 
 
             <td className="actions">

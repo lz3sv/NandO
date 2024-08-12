@@ -1,4 +1,4 @@
-.create-box {
+.edit-box {
     color: rgb(2, 2, 2);
     width: 380px;
     height: 430px;
@@ -9,7 +9,7 @@
 
   }
   
-  .create-box h1 {
+  .edit-box h1 {
     color: white;
     text-align: center;
     padding-top: 15px;
@@ -52,14 +52,14 @@
     font-size: 15px;
   }
   
-  .create-box p {
+  .edit-box p {
 
     text-align: center;
     padding-top: 20px;
     font-size: 15px;
   }
   
-  .create-box p > a {
+  .edit-box p > a {
     color: black;
   }
 

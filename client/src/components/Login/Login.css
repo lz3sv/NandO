@@ -10,6 +10,7 @@
   }
   
   .login-box h1 {
+    color: white;
     text-align: center;
     padding-top: 15px;
   }
@@ -52,7 +53,7 @@
   }
   
   .login-box p {
-
+    color: white;
     text-align: center;
     padding-top: 20px;
     font-size: 15px;

@@ -21,8 +21,8 @@ const [enigma, setEnigma]=useState({})
     useEffect(()=>{
         (async ()=>{
             const result= await enigmasAPI.getOne(enigmaId)
-            console.log('from hook')
-            console.log(result)
+            // console.log('from hook')
+            // console.log(result)
             setEnigma(result)
         })()
     },[enigmaId])
@@ -37,4 +37,9 @@ const [enigma, setEnigma]=useState({})
 export function useCreateEnigma(){
     const enigmaCreateHandler = (enigmaData)=> enigmasAPI.create(enigmaData)
     return enigmaCreateHandler
+}
+
+export function useEditEnigma(){
+    const enigmaEditHandler = (enigmaId, enigmaData)=> enigmasAPI.update(enigmaId, enigmaData)
+    return enigmaEditHandler
 }
