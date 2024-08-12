@@ -11,7 +11,7 @@ import EnigmaSection from "./components/enigma-section/EnigmaSection"
 import Create from "./components/Create/Create"
 import {AuthContextProvider } from './context/AuthContext'
 import Logout from "./components/Logout/Logout"
-import PrivateGuard from "./components/common/privateGuard"
+import PrivateGuard, { LogedGuard } from "./components/common/privateGuard"
 import EnigmaDetails from "./components/Details/EnigmaDetails"
 import EnigmaDelete from "./components/Delete/EnigmaDelete"
 import Edit from "./components/Edit/Edit"
@@ -28,15 +28,17 @@ function App() {
           <Route path="/" element={<EnigmaSection />} />
           <Route path="/about" element={<About />} />
           <Route path="/catalog" element={<EnigmaSection />} />
-          
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/catalog/:enigmaId/details" element={<EnigmaDetails />} />
+          <Route element={<LogedGuard/>}>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
           <Route element={<PrivateGuard/>}>
               <Route path="/logout" element={<Logout />} />
               <Route path="/create" element={<Create />} />
           </Route>
           <Route path="/catalog/:enigmaId/edit" element={<Edit />} />
-          <Route path="/catalog/:enigmaId/details" element={<EnigmaDetails />} />
+
           <Route path="/catalog/:enigmaId/delete" element={<EnigmaDelete />} />
           <Route path="/not-found" element={<Not404 />} />
           <Route path="*" element={<Not404 />} />

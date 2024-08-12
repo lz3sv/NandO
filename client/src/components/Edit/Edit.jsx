@@ -2,7 +2,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import './Edit.css'
 
-import { useAuthContext } from "../../context/AuthContext";
 import { formValidation } from "../../util/formValidation";
 import { useForm } from "../../hooks/useForm";
 import { useEditEnigma, useGetOneEnigmas } from "../../hooks/useEnigmas";

@@ -6,9 +6,6 @@ import { useAuthContext } from '../../../context/AuthContext'
 
 export default function EnigmaElement({
     enigma,
-    onEnigmaDetailsClick,
-    onEnigmaDeleteClick,
-    onEnigmaEditClick,
     onEnigmaLikeClick,
 
 }) {
