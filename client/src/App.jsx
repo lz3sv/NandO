@@ -36,10 +36,9 @@ function App() {
           <Route element={<PrivateGuard/>}>
               <Route path="/logout" element={<Logout />} />
               <Route path="/create" element={<Create />} />
+              <Route path="/catalog/:enigmaId/edit" element={<Edit />} />
+              <Route path="/catalog/:enigmaId/delete" element={<EnigmaDelete />} />
           </Route>
-          <Route path="/catalog/:enigmaId/edit" element={<Edit />} />
-
-          <Route path="/catalog/:enigmaId/delete" element={<EnigmaDelete />} />
           <Route path="/not-found" element={<Not404 />} />
           <Route path="*" element={<Not404 />} />
         </Routes>
