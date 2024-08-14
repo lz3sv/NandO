@@ -153,10 +153,12 @@ http://localhost:5173/not-found
 
 При реализацията на приложението са използвани специфичните за React концепции:
 
-    - hooks;
-    - state;
-    - context;
+
+    - hooks
+    - state
+    - context
     - и др.
+  
 
 
 
